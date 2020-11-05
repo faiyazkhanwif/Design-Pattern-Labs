@@ -1,0 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package pkg171283972.lab4b;
+
+/**
+ *
+ * @author faiya
+ */
+public class MotifScrollBar implements ScrollBar{
+
+    @Override
+    public void setDirection() {
+        System.out.println("Motif ScrollBar direction is vertical");
+    }
+    
+}
