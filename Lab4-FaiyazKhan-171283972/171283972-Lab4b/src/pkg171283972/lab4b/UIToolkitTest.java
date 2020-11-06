@@ -20,13 +20,12 @@ public class UIToolkitTest {
         Scanner in = new Scanner(System.in);
         int flag = 0;
         while (flag == 0) {
+            WidgetClient wc = new WidgetClient();
             System.out.println("Type 1 for Motif, 2 for Presentation Manager, 3 to exit:");
             int n = in.nextInt();
             if (n == 1) {
-                WidgetClient wc = new WidgetClient();
                 wc.createWidget(n);
             } else if (n == 2) {
-                WidgetClient wc = new WidgetClient();
                 wc.createWidget(n);
             } else if (n == 3) {
                 flag = 3;

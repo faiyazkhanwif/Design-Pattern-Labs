@@ -18,13 +18,13 @@ public class WidgetClient {
     public void createWidget(int n) {
         if (n == 1) {
             aw = new MotifWidgetFactory();
-            aw.createWindow().setTitle("New Window");
-            aw.createScrollbar().setDirection();
-
         } else {
             aw = new PMWidgetFactory();
-            aw.createWindow().setTitle("New Window");
-            aw.createScrollbar().setDirection();
         }
+        window = aw.createWindow();
+        window.setTitle("New Window");
+        scrollbar = aw.createScrollbar();
+        scrollbar.setDirection();
+
     }
 }
