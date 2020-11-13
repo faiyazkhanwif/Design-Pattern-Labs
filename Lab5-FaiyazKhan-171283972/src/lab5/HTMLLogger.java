@@ -5,12 +5,11 @@
  */
 package lab5;
 
-
 /**
  *
  * @author faiya
  */
-public class HTMLLogger extends LoggerDecorator{
+public class HTMLLogger extends LoggerDecorator {
 
     public HTMLLogger(Logger logger) {
         this.logger = logger;
@@ -18,7 +17,11 @@ public class HTMLLogger extends LoggerDecorator{
 
     @Override
     public void log(String msg) {
-        logger.log("<HTML><BODY><b>"+msg+"</b></BODY></HTML>");
+        logger.log(makeHTML(msg));
     }
-    
+
+    public String makeHTML(String msg) {
+        return "<HTML><BODY><b>" + msg + "</b></BODY></HTML>";
+    }
+
 }

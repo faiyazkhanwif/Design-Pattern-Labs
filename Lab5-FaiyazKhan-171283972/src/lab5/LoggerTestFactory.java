@@ -26,7 +26,7 @@ public class LoggerTestFactory {
         Logger lg2 = new EncryptLogger(factory.getLogger());
         lg2.log(dt+": "+"hello, how are you?");
         
-        Logger lg3 = new EncryptLogger(new HTMLLogger(factory.getLogger()));
+        Logger lg3 = new EncryptLogger(lg);
         lg3.log("Good Bye");
     }
 }
