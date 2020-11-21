@@ -5,6 +5,15 @@
  */
 package dphalloweenswing;
 
+import java.awt.event.ActionEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author faiya
@@ -28,16 +37,44 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        ghostimg = new javax.swing.JLabel();
+        Candlebtn1 = new javax.swing.JButton();
+        ghostbtn = new javax.swing.JButton();
+        treeimg = new javax.swing.JLabel();
+        bgimg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setLayout(null);
+        jPanel1.add(ghostimg);
+        ghostimg.setBounds(450, 130, 140, 240);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg.jpg"))); // NOI18N
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 800, 600);
+        Candlebtn1.setBackground(new java.awt.Color(153, 153, 153));
+        Candlebtn1.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        Candlebtn1.setText("Candle");
+        Candlebtn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(Candlebtn1);
+        Candlebtn1.setBounds(360, 530, 90, 30);
+
+        ghostbtn.setBackground(new java.awt.Color(153, 153, 153));
+        ghostbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        ghostbtn.setText("Ghost");
+        ghostbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ghostbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ghostbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ghostbtn);
+        ghostbtn.setBounds(260, 530, 90, 30);
+
+        treeimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/tr.png"))); // NOI18N
+        jPanel1.add(treeimg);
+        treeimg.setBounds(0, 0, 550, 500);
+
+        bgimg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/bg.jpg"))); // NOI18N
+        jPanel1.add(bgimg);
+        bgimg.setBounds(0, 0, 800, 600);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,9 +90,34 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ghostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ghostbtnActionPerformed
+        BufferedImage ghimage;
+        try {
+            ghimage = ImageIO.read(getClass().getResource("/images/g.png"));
+            ImageIcon gicon = new ImageIcon(ghimage);
+            ghostimg.setIcon(gicon);
+            ghostimg.setVisible(true);
+            ghostimg.revalidate();
+        } catch (IOException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //ghostimg.setVisible(false);
+    }//GEN-LAST:event_ghostbtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Candlebtn1;
+    private javax.swing.JLabel bgimg;
+    private javax.swing.JButton ghostbtn;
+    private javax.swing.JLabel ghostimg;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel treeimg;
+    // End of variables declaration//GEN-END:variables
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -84,12 +146,8 @@ public class MainJFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainJFrame().setVisible(true);
+
             }
         });
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    // End of variables declaration//GEN-END:variables
 }
