@@ -8,12 +8,20 @@ package dphalloweenswing;
 import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -68,6 +76,7 @@ public class MainJFrame extends javax.swing.JFrame {
         kid = new javax.swing.JLabel();
         pumpkinbtn = new javax.swing.JButton();
         cfbtn = new javax.swing.JButton();
+        soundbtn = new javax.swing.JButton();
         catbtn = new javax.swing.JButton();
         Candlebtn1 = new javax.swing.JButton();
         bannerbtn1 = new javax.swing.JButton();
@@ -177,6 +186,18 @@ public class MainJFrame extends javax.swing.JFrame {
         });
         jPanel1.add(cfbtn);
         cfbtn.setBounds(120, 560, 110, 30);
+
+        soundbtn.setBackground(new java.awt.Color(153, 153, 153));
+        soundbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        soundbtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/soundoff.png"))); // NOI18N
+        soundbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        soundbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soundbtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(soundbtn);
+        soundbtn.setBounds(750, 10, 40, 33);
 
         catbtn.setBackground(new java.awt.Color(153, 153, 153));
         catbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -853,6 +874,42 @@ public class MainJFrame extends javax.swing.JFrame {
         kid.revalidate();
         bat.revalidate();
     }//GEN-LAST:event_allActionPerformed
+    
+    public Clip backgroundSoundSystem() {
+        URL urls = getClass().getResource("/sound/bgsound.wav");
+        //File mp = new File(urls.getPath());
+        AudioInputStream audioInputStream;
+        Clip clip = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(urls.openStream());
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            return clip;
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            return clip;
+        }
+    }
+    
+    int z = 0;
+    Clip clipmain = backgroundSoundSystem();
+    private void soundbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundbtnActionPerformed
+        if (z == 0 || z % 2 == 0) {
+            URL urlic = getClass().getResource("/images/soundon.png");
+            ImageIcon sicon = new ImageIcon(urlic);
+            soundbtn.setIcon(sicon);
+            clipmain.start();
+            clipmain.loop(Clip.LOOP_CONTINUOUSLY);
+            z++;
+        } else if (z > 0 && z % 2 != 0) {
+            URL urlic = getClass().getResource("/images/soundoff.png");
+            ImageIcon sicon = new ImageIcon(urlic);
+            soundbtn.setIcon(sicon);
+            clipmain.stop();
+            z++;
+        }
+
+    }//GEN-LAST:event_soundbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -897,6 +954,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel pumpkin3;
     private javax.swing.JLabel pumpkin4;
     private javax.swing.JButton pumpkinbtn;
+    private javax.swing.JButton soundbtn;
     private javax.swing.JLabel treeimg;
     // End of variables declaration//GEN-END:variables
 
@@ -926,6 +984,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MainJFrame().setVisible(true);
 
