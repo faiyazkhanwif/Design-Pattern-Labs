@@ -877,7 +877,6 @@ public class MainJFrame extends javax.swing.JFrame {
     
     public Clip backgroundSoundSystem() {
         URL urls = getClass().getResource("/sound/bgsound.wav");
-        //File mp = new File(urls.getPath());
         AudioInputStream audioInputStream;
         Clip clip = null;
         try {
