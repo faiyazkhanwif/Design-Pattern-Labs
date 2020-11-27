@@ -26,11 +26,11 @@ public class Category {
     }
 
     public void addItem(Item item) {
-        items.put(desc, item);
+        items.put(this, item);
     }
 
     public void deleteItem() {
-        items.remove(desc);
+        items.remove(this);
     }
 
     @Override

@@ -20,7 +20,8 @@ public class DeleteCommand implements Command {
 
     @Override
     public void execute() {
-        item.deleteCategory();
+        item.deleteCategory(category);
         category.deleteItem();
+        System.out.println("Item '"+item.getDesc()+"' has been deleted from the "+"'"+category.getDesc()+"' Category");
     }
 }
