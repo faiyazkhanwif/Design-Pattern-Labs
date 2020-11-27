@@ -33,4 +33,11 @@ public class Category {
         items.remove(desc);
     }
 
+    @Override
+    public String toString() {
+        return desc;
+    }
+    
+    
+
 }

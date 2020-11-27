@@ -12,10 +12,18 @@ package lab6;
 public class CommandTest {
     public static void main(String[] args) {
         ItemManager im = new ItemManager();
-        Item item = new Item("Duet");
-        Category category = new Category("New Releases");
+        Item item = new Item("duet");
+        Category category = new Category("CD");
         AddCommand add = new AddCommand(item,category);
         im.setCommand(add);
         im.RequestWasMade();
+        Category category1 = new Category("New Releases");
+        AddCommand add1 = new AddCommand(item,category1);
+        im.setCommand(add1);
+        im.RequestWasMade();
+        
+        item.displayCategories();
+
+        
     }
 }
