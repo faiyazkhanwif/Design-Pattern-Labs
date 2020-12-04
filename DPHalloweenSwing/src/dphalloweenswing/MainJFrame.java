@@ -24,6 +24,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 /**
@@ -874,40 +875,31 @@ public class MainJFrame extends javax.swing.JFrame {
         kid.revalidate();
         bat.revalidate();
     }//GEN-LAST:event_allActionPerformed
+
     
-    public Clip backgroundSoundSystem() {
-        URL urls = getClass().getResource("/sound/bgsound.wav");
-        AudioInputStream audioInputStream;
-        Clip clip = null;
-        try {
-            audioInputStream = AudioSystem.getAudioInputStream(urls.openStream());
-            clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            return clip;
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            return clip;
-        }
-    }
-    
+    //Applied Command pattern for sound button.
     int z = 0;
-    Clip clipmain = backgroundSoundSystem();
+    SoundManager sm = new SoundManager();
+    Sound sound = new Sound();
+
     private void soundbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundbtnActionPerformed
         if (z == 0 || z % 2 == 0) {
             URL urlic = getClass().getResource("/images/soundon.png");
             ImageIcon sicon = new ImageIcon(urlic);
             soundbtn.setIcon(sicon);
-            clipmain.start();
-            clipmain.loop(Clip.LOOP_CONTINUOUSLY);
+            SoundOnCommand soc = new SoundOnCommand(sound);
+            sm.setCommand(soc);
+            sm.buttonWasPressed();
             z++;
         } else if (z > 0 && z % 2 != 0) {
             URL urlic = getClass().getResource("/images/soundoff.png");
             ImageIcon sicon = new ImageIcon(urlic);
             soundbtn.setIcon(sicon);
-            clipmain.stop();
+            SoundOffCommand sfc = new SoundOffCommand(sound);
+            sm.setCommand(sfc);
+            sm.buttonWasPressed();
             z++;
         }
-
     }//GEN-LAST:event_soundbtnActionPerformed
 
     /**
