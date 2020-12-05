@@ -2,6 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Coding%20Files/Netbeans/Design%20Pattern%20Labs/Lab3-FaiyazKhan-171283972/171283972-Lab3-Part2/src/lab3/part2/ConsoleLogger.java</file>
+            <file>file:/D:/Coding%20Files/Netbeans/Design%20Pattern%20Labs/Lab3-FaiyazKhan-171283972/171283972-Lab3-Part2/src/lab3/part2/FileLogger.java</file>
+            <file>file:/D:/Coding%20Files/Netbeans/Design%20Pattern%20Labs/Lab3-FaiyazKhan-171283972/171283972-Lab3-Part2/src/lab3/part2/LoggerFactory.java</file>
+            <file>file:/D:/Coding%20Files/Netbeans/Design%20Pattern%20Labs/Lab3-FaiyazKhan-171283972/171283972-Lab3-Part2/src/lab3/part2/Logger.java</file>
+        </group>
     </open-files>
 </project-private>

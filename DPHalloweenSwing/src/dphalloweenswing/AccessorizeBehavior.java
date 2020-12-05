@@ -5,12 +5,14 @@
  */
 package dphalloweenswing;
 
+//used for Strategy Pattern
 
-//Used for Command Pattern
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author faiya
  */
-public interface Command {
-    void execute();
+public interface AccessorizeBehavior {
+    ImageIcon accessorize();
 }

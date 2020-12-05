@@ -27,6 +27,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
+
+// Strategy Pattern: Banner and Lamps.
+// Command Pattern: Background Sound.
+//
+
+
+
 /**
  *
  * @author faiya
@@ -419,6 +426,9 @@ public class MainJFrame extends javax.swing.JFrame {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Candlebtn1ActionPerformed
+    
+    
+    
     int o = 0;
     private void lampbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lampbtnActionPerformed
         ghostimg.setVisible(false);
@@ -436,56 +446,55 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin4.setVisible(false);
         banner.setVisible(false);
         bat.setVisible(false);
-        BufferedImage lmimage;
-        try {
-            lmimage = ImageIO.read(getClass().getResource("/images/lamp.png"));
 
-            ImageIcon licon = new ImageIcon(lmimage);
-            lamp1.setIcon(licon);
-            lamp2.setIcon(licon);
-            lamp3.setIcon(licon);
-            lamp4.setIcon(licon);
-            lamp5.setIcon(licon);
-            lamp6.setIcon(licon);
-            lamp7.setIcon(licon);
-            if (lamp1.isVisible() == false) {
-                lamp1.setVisible(true);
-                lamp2.setVisible(true);
-                lamp3.setVisible(true);
-                lamp4.setVisible(true);
-                lamp5.setVisible(true);
-                lamp6.setVisible(true);
-                lamp7.setVisible(true);
-                o++;
-            } else if (lamp1.isVisible() == true && o == 0) {
-                lamp1.setVisible(true);
-                lamp2.setVisible(true);
-                lamp3.setVisible(true);
-                lamp4.setVisible(true);
-                lamp5.setVisible(true);
-                lamp6.setVisible(true);
-                lamp7.setVisible(true);
-                o++;
-            } else {
-                lamp1.setVisible(false);
-                lamp2.setVisible(false);
-                lamp3.setVisible(false);
-                lamp4.setVisible(false);
-                lamp5.setVisible(false);
-                lamp6.setVisible(false);
-                lamp7.setVisible(false);
-            }
-            lamp1.revalidate();
-            lamp2.revalidate();
-            lamp3.revalidate();
-            lamp4.revalidate();
-            lamp5.revalidate();
-            lamp6.revalidate();
-            lamp7.revalidate();
-        } catch (IOException ex) {
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        //------------------------------------------------Strategy Pattern--------------------------------------------------------
+        TreeAccessories mylamps = new Lamps();
+        ImageIcon licon = mylamps.performAccessorize();
+
+        lamp1.setIcon(licon);
+        lamp2.setIcon(licon);
+        lamp3.setIcon(licon);
+        lamp4.setIcon(licon);
+        lamp5.setIcon(licon);
+        lamp6.setIcon(licon);
+        lamp7.setIcon(licon);
+        if (lamp1.isVisible() == false) {
+            lamp1.setVisible(true);
+            lamp2.setVisible(true);
+            lamp3.setVisible(true);
+            lamp4.setVisible(true);
+            lamp5.setVisible(true);
+            lamp6.setVisible(true);
+            lamp7.setVisible(true);
+            o++;
+        } else if (lamp1.isVisible() == true && o == 0) {
+            lamp1.setVisible(true);
+            lamp2.setVisible(true);
+            lamp3.setVisible(true);
+            lamp4.setVisible(true);
+            lamp5.setVisible(true);
+            lamp6.setVisible(true);
+            lamp7.setVisible(true);
+            o++;
+        } else {
+            lamp1.setVisible(false);
+            lamp2.setVisible(false);
+            lamp3.setVisible(false);
+            lamp4.setVisible(false);
+            lamp5.setVisible(false);
+            lamp6.setVisible(false);
+            lamp7.setVisible(false);
         }
+        lamp1.revalidate();
+        lamp2.revalidate();
+        lamp3.revalidate();
+        lamp4.revalidate();
+        lamp5.revalidate();
+        lamp6.revalidate();
+        lamp7.revalidate();
     }//GEN-LAST:event_lampbtnActionPerformed
+    
+    
     int p = 0;
     private void catbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catbtnActionPerformed
         lamp1.setVisible(false);
@@ -713,10 +722,11 @@ public class MainJFrame extends javax.swing.JFrame {
         cat.setVisible(false);
         bat.setVisible(false);
         kid.setVisible(false);
-        banner.setVisible(false);
-        URL url = getClass().getResource("/images/banner.png");
-        ImageIcon bicon = new ImageIcon(url);
-        banner.setIcon(bicon);
+
+        //-----------------------------------------------Strategy Pattern------------------------------------------------
+        TreeAccessories mybanner = new Banner();
+        banner.setIcon(mybanner.performAccessorize());
+        
         if (banner.isVisible() == false) {
             banner.setVisible(true);
             u++;
@@ -727,6 +737,8 @@ public class MainJFrame extends javax.swing.JFrame {
             banner.setVisible(false);
         }
         banner.revalidate();    }//GEN-LAST:event_bannerbtn1ActionPerformed
+    
+    
     int v = 0;
     private void allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allActionPerformed
         lamp1.setVisible(false);
@@ -876,7 +888,6 @@ public class MainJFrame extends javax.swing.JFrame {
         bat.revalidate();
     }//GEN-LAST:event_allActionPerformed
 
-    
     //Applied Command pattern for sound button.
     int z = 0;
     SoundManager sm = new SoundManager();
@@ -887,6 +898,8 @@ public class MainJFrame extends javax.swing.JFrame {
             URL urlic = getClass().getResource("/images/soundon.png");
             ImageIcon sicon = new ImageIcon(urlic);
             soundbtn.setIcon(sicon);
+            
+            //----------------------------------------Command Pattern-------------------------------------------
             SoundOnCommand soc = new SoundOnCommand(sound);
             sm.setCommand(soc);
             sm.buttonWasPressed();
@@ -895,6 +908,8 @@ public class MainJFrame extends javax.swing.JFrame {
             URL urlic = getClass().getResource("/images/soundoff.png");
             ImageIcon sicon = new ImageIcon(urlic);
             soundbtn.setIcon(sicon);
+            
+            //----------------------------------------Command Pattern-------------------------------------------
             SoundOffCommand sfc = new SoundOffCommand(sound);
             sm.setCommand(sfc);
             sm.buttonWasPressed();

@@ -5,22 +5,16 @@
  */
 package dphalloweenswing;
 
-//Used for Command Pattern
+//used for Strategy Pattern
+
 /**
  *
  * @author faiya
  */
-public class SoundManager {
-    Command slot;
+public class Banner extends TreeAccessories{
 
-    public SoundManager() {
-        
-    }
-    public void setCommand(Command command){
-        slot = command;
-    }
-    public void buttonWasPressed(){
-        slot.execute();
+    public Banner() {
+        accbehavior = new AccessorizeWithBanner();
     }
     
 }

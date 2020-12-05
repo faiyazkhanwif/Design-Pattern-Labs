@@ -6,7 +6,7 @@
 package dphalloweenswing;
 
 
-
+//Used for Command Pattern
 /**
  *
  * @author faiya
