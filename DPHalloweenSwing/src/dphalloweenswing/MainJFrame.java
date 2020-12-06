@@ -30,7 +30,6 @@ import javax.swing.JLabel;
 //-------------------------Strategy Pattern: Banner and Lamps.
 //-------------------------Command Pattern: Background Sound.
 //-------------------------Simple Factory: Kid Ghost, Scary Ghost and Big Ghost.
-
 /**
  *
  * @author faiya
@@ -336,6 +335,15 @@ public class MainJFrame extends javax.swing.JFrame {
         kid.setVisible(false);
         bat.setVisible(false);
         banner.setVisible(false);
+        m = 0;
+        o = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        u = 0;
+        v = 0;
 
         // ----------------------------------Simple Factory pattern--------------------------------------------
         GhostFactory gfactory = new GhostFactory();
@@ -344,23 +352,20 @@ public class MainJFrame extends javax.swing.JFrame {
         ghostimg.setIcon(bigghost.appear());
         ghostimg2.setIcon(scaryghost.appear());
 
-        if (ghostimg.isVisible() == false) {
+        if (n == 0) {
             ghostimg.setVisible(true);
             ghostimg2.setVisible(true);
-            n++;
-        } else if (ghostimg.isVisible() == true && n == 0) {
-            ghostimg.setVisible(true);
-            ghostimg2.setVisible(true);
-            n++;
-        } else {
+            n = 1;
+
+        } else if (n == 1) {
             ghostimg.setVisible(false);
             ghostimg2.setVisible(false);
+            n = 0;
         }
         ghostimg.revalidate();
         ghostimg2.revalidate();
     }//GEN-LAST:event_ghostbtnActionPerformed
-    
-    
+
     int m = 0;
     private void Candlebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Candlebtn1ActionPerformed
         lamp1.setVisible(false);
@@ -381,6 +386,15 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin4.setVisible(false);
         bat.setVisible(false);
         banner.setVisible(false);
+        o = 0;
+        n = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        u = 0;
+        v = 0;
         BufferedImage frimage;
         try {
             frimage = ImageIO.read(getClass().getResource("/images/fire.png"));
@@ -390,23 +404,19 @@ public class MainJFrame extends javax.swing.JFrame {
             candlelight2.setIcon(ficon);
             candlelight3.setIcon(ficon);
             candlelight4.setIcon(ficon);
-            if (candlelight1.isVisible() == false) {
+            if (m == 0) {
                 candlelight1.setVisible(true);
                 candlelight2.setVisible(true);
                 candlelight3.setVisible(true);
                 candlelight4.setVisible(true);
-                m++;
-            } else if (candlelight1.isVisible() == true && m == 0) {
-                candlelight1.setVisible(true);
-                candlelight2.setVisible(true);
-                candlelight3.setVisible(true);
-                candlelight4.setVisible(true);
-                m++;
-            } else {
+                m = 1;
+
+            } else if (m == 1) {
                 candlelight1.setVisible(false);
                 candlelight2.setVisible(false);
                 candlelight3.setVisible(false);
                 candlelight4.setVisible(false);
+                m = 0;
             }
             candlelight1.revalidate();
             candlelight2.revalidate();
@@ -434,6 +444,15 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin4.setVisible(false);
         banner.setVisible(false);
         bat.setVisible(false);
+        m = 0;
+        n = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        u = 0;
+        v = 0;
 
         //------------------------------------------------Strategy Pattern--------------------------------------------------------
         TreeAccessories mylamps = new Lamps();
@@ -446,7 +465,7 @@ public class MainJFrame extends javax.swing.JFrame {
         lamp5.setIcon(licon);
         lamp6.setIcon(licon);
         lamp7.setIcon(licon);
-        if (lamp1.isVisible() == false) {
+        if (o == 0) {
             lamp1.setVisible(true);
             lamp2.setVisible(true);
             lamp3.setVisible(true);
@@ -454,17 +473,8 @@ public class MainJFrame extends javax.swing.JFrame {
             lamp5.setVisible(true);
             lamp6.setVisible(true);
             lamp7.setVisible(true);
-            o++;
-        } else if (lamp1.isVisible() == true && o == 0) {
-            lamp1.setVisible(true);
-            lamp2.setVisible(true);
-            lamp3.setVisible(true);
-            lamp4.setVisible(true);
-            lamp5.setVisible(true);
-            lamp6.setVisible(true);
-            lamp7.setVisible(true);
-            o++;
-        } else {
+            o = 1;
+        } else if (o == 1) {
             lamp1.setVisible(false);
             lamp2.setVisible(false);
             lamp3.setVisible(false);
@@ -472,6 +482,7 @@ public class MainJFrame extends javax.swing.JFrame {
             lamp5.setVisible(false);
             lamp6.setVisible(false);
             lamp7.setVisible(false);
+            o = 0;
         }
         lamp1.revalidate();
         lamp2.revalidate();
@@ -505,17 +516,25 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin2.setVisible(false);
         pumpkin3.setVisible(false);
         pumpkin4.setVisible(false);
+        m = 0;
+        n = 0;
+        o = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        u = 0;
+        v = 0;
         URL url = getClass().getResource("/images/cat.gif");
         ImageIcon cicon = new ImageIcon(url);
         cat.setIcon(cicon);
-        if (cat.isVisible() == false) {
+        if (p == 0) {
             cat.setVisible(true);
-            p++;
-        } else if (cat.isVisible() == true && p == 0) {
-            cat.setVisible(true);
-            p++;
-        } else {
+            p = 1;
+
+        } else if (p == 1) {
             cat.setVisible(false);
+            p = 0;
         }
         cat.revalidate();
     }//GEN-LAST:event_catbtnActionPerformed
@@ -543,17 +562,25 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin2.setVisible(false);
         pumpkin3.setVisible(false);
         pumpkin4.setVisible(false);
+        m = 0;
+        n = 0;
+        o = 0;
+        p = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        u = 0;
+        v = 0;
         URL url = getClass().getResource("/images/campfire.gif");
         ImageIcon cficon = new ImageIcon(url);
         campfire.setIcon(cficon);
-        if (campfire.isVisible() == false) {
+        if (q == 0) {
             campfire.setVisible(true);
-            q++;
-        } else if (campfire.isVisible() == true && q == 0) {
-            campfire.setVisible(true);
-            q++;
-        } else {
+            q = 1;
+
+        } else if (q == 1) {
             campfire.setVisible(false);
+            q = 0;
         }
         campfire.revalidate();
     }//GEN-LAST:event_cfbtnActionPerformed
@@ -578,6 +605,15 @@ public class MainJFrame extends javax.swing.JFrame {
         bat.setVisible(false);
         kid.setVisible(false);
         banner.setVisible(false);
+        m = 0;
+        n = 0;
+        o = 0;
+        p = 0;
+        q = 0;
+        s = 0;
+        t = 0;
+        u = 0;
+        v = 0;
         URL url = getClass().getResource("/images/pumpkin.gif");
         URL url2 = getClass().getResource("/images/pumpkinx.gif");
         URL url3 = getClass().getResource("/images/pumpkiny.gif");
@@ -590,23 +626,19 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin2.setIcon(pficon2);
         pumpkin3.setIcon(pficon3);
         pumpkin4.setIcon(pficon4);
-        if (pumpkin1.isVisible() == false) {
+        if (r == 0) {
             pumpkin1.setVisible(true);
             pumpkin2.setVisible(true);
             pumpkin3.setVisible(true);
             pumpkin4.setVisible(true);
-            r++;
-        } else if (pumpkin1.isVisible() == true && r == 0) {
-            pumpkin1.setVisible(true);
-            pumpkin2.setVisible(true);
-            pumpkin3.setVisible(true);
-            pumpkin4.setVisible(true);
-            r++;
-        } else {
+            r = 1;
+
+        } else if (r == 1) {
             pumpkin1.setVisible(false);
             pumpkin2.setVisible(false);
             pumpkin3.setVisible(false);
             pumpkin4.setVisible(false);
+            r = 0;
         }
         pumpkin1.revalidate();
         pumpkin2.revalidate();
@@ -637,19 +669,27 @@ public class MainJFrame extends javax.swing.JFrame {
         cat.setVisible(false);
         kid.setVisible(false);
         banner.setVisible(false);
+        m = 0;
+        n = 0;
+        o = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        t = 0;
+        u = 0;
+        v = 0;
         URL url = getClass().getResource("/images/bats.gif");
         ImageIcon bicon = new ImageIcon(url);
         bat.setIcon(bicon);
-        if (bat.isVisible() == false) {
+        if (s == 0) {
             bat.setVisible(true);
-            s++;
-        } else if (bat.isVisible() == true && s == 0) {
-            bat.setVisible(true);
-            s++;
-        } else {
+            s = 1;
+        } else if (s == 1) {
             bat.setVisible(false);
+            s = 0;
         }
         bat.revalidate();    }//GEN-LAST:event_batbtnActionPerformed
+
     int t = 0;
     private void kidbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kidbtnActionPerformed
         lamp1.setVisible(false);
@@ -673,25 +713,29 @@ public class MainJFrame extends javax.swing.JFrame {
         cat.setVisible(false);
         bat.setVisible(false);
         banner.setVisible(false);
-        
+        m = 0;
+        n = 0;
+        o = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        u = 0;
+        v = 0;
         // ----------------------------------Simple Factory pattern--------------------------------------------
         GhostFactory gfactory = new GhostFactory();
         Ghost kidghost = gfactory.getGhost("kid");
         kid.setIcon(kidghost.appear());
-        
-        
-        if (kid.isVisible() == false) {
+
+        if (t == 0) {
             kid.setVisible(true);
-            t++;
-        } else if (kid.isVisible() == true && t == 0) {
-            kid.setVisible(true);
-            t++;
-        } else {
+            t = 1;
+        } else if (t == 1) {
             kid.setVisible(false);
+            t = 0;
         }
         kid.revalidate();    }//GEN-LAST:event_kidbtnActionPerformed
-    
-    
+
     int u = 0;
     private void bannerbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bannerbtn1ActionPerformed
         lamp1.setVisible(false);
@@ -715,24 +759,62 @@ public class MainJFrame extends javax.swing.JFrame {
         cat.setVisible(false);
         bat.setVisible(false);
         kid.setVisible(false);
+        m = 0;
+        n = 0;
+        o = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        v = 0;
 
         //-----------------------------------------------Strategy Pattern------------------------------------------------
         TreeAccessories mybanner = new Banner();
         banner.setIcon(mybanner.performAccessorize());
 
-        if (banner.isVisible() == false) {
+        if (u == 0) {
             banner.setVisible(true);
-            u++;
-        } else if (banner.isVisible() == true && u == 0) {
-            banner.setVisible(true);
-            u++;
-        } else {
+            u = 1;
+        } else if (u == 1) {
             banner.setVisible(false);
+            u = 0;
         }
         banner.revalidate();    }//GEN-LAST:event_bannerbtn1ActionPerformed
 
     int v = 0;
     private void allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allActionPerformed
+        banner.setVisible(false);
+        kid.setVisible(false);
+        bat.setVisible(false);
+        pumpkin1.setVisible(false);
+        pumpkin2.setVisible(false);
+        pumpkin3.setVisible(false);
+        pumpkin4.setVisible(false);
+        campfire.setVisible(false);
+        cat.setVisible(false);
+        lamp1.setVisible(false);
+        lamp2.setVisible(false);
+        lamp3.setVisible(false);
+        lamp4.setVisible(false);
+        lamp5.setVisible(false);
+        lamp6.setVisible(false);
+        lamp7.setVisible(false);
+        candlelight1.setVisible(false);
+        candlelight2.setVisible(false);
+        candlelight3.setVisible(false);
+        candlelight4.setVisible(false);
+        ghostimg.setVisible(false);
+        ghostimg2.setVisible(false);
+        m = 0;
+        n = 0;
+        o = 0;
+        p = 0;
+        q = 0;
+        r = 0;
+        s = 0;
+        t = 0;
+        u = 0;
         URL url3 = getClass().getResource("/images/pumpkin.gif");
         URL url4 = getClass().getResource("/images/pumpkinx.gif");
         URL url5 = getClass().getResource("/images/pumpkiny.gif");
@@ -781,7 +863,8 @@ public class MainJFrame extends javax.swing.JFrame {
         candlelight2.setIcon(ficon);
         candlelight3.setIcon(ficon);
         candlelight4.setIcon(ficon);
-        if (banner.isVisible() == false) {
+        //if (banner.isVisible() == false) {
+        if (v == 0) {
             banner.setVisible(true);
             kid.setVisible(true);
             bat.setVisible(true);
@@ -804,32 +887,10 @@ public class MainJFrame extends javax.swing.JFrame {
             candlelight4.setVisible(true);
             ghostimg.setVisible(true);
             ghostimg2.setVisible(true);
-            v++;
-        } else if (banner.isVisible() == true && v == 0) {
-            banner.setVisible(true);
-            kid.setVisible(true);
-            bat.setVisible(true);
-            pumpkin1.setVisible(true);
-            pumpkin2.setVisible(true);
-            pumpkin3.setVisible(true);
-            pumpkin4.setVisible(true);
-            campfire.setVisible(true);
-            cat.setVisible(true);
-            lamp1.setVisible(true);
-            lamp2.setVisible(true);
-            lamp3.setVisible(true);
-            lamp4.setVisible(true);
-            lamp5.setVisible(true);
-            lamp6.setVisible(true);
-            lamp7.setVisible(true);
-            candlelight1.setVisible(true);
-            candlelight2.setVisible(true);
-            candlelight3.setVisible(true);
-            candlelight4.setVisible(true);
-            ghostimg.setVisible(true);
-            ghostimg2.setVisible(true);
-            v++;
-        } else {
+            //v++;
+            v = 1;
+
+        } else if (v == 1) {
             banner.setVisible(false);
             kid.setVisible(false);
             bat.setVisible(false);
@@ -852,19 +913,39 @@ public class MainJFrame extends javax.swing.JFrame {
             candlelight4.setVisible(false);
             ghostimg.setVisible(false);
             ghostimg2.setVisible(false);
+            v = 0;
         }
         banner.revalidate();
         kid.revalidate();
         bat.revalidate();
+        pumpkin1.revalidate();
+        pumpkin2.revalidate();
+        pumpkin3.revalidate();
+        pumpkin4.revalidate();
+        campfire.revalidate();
+        cat.revalidate();
+        lamp1.revalidate();
+        lamp2.revalidate();
+        lamp3.revalidate();
+        lamp4.revalidate();
+        lamp5.revalidate();
+        lamp6.revalidate();
+        lamp7.revalidate();
+        candlelight1.revalidate();
+        candlelight2.revalidate();
+        candlelight3.revalidate();
+        candlelight4.revalidate();
+        ghostimg.revalidate();
+        ghostimg2.revalidate();
     }//GEN-LAST:event_allActionPerformed
 
     //Applied Command pattern for sound button.
-    int z = 0;
+    int switchs = 0;
     SoundManager sm = new SoundManager();
     Sound sound = new Sound();
 
     private void soundbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundbtnActionPerformed
-        if (z == 0 || z % 2 == 0) {
+        if (switchs == 0) {
             URL urlic = getClass().getResource("/images/soundon.png");
             ImageIcon sicon = new ImageIcon(urlic);
             soundbtn.setIcon(sicon);
@@ -873,8 +954,8 @@ public class MainJFrame extends javax.swing.JFrame {
             SoundOnCommand soc = new SoundOnCommand(sound);
             sm.setCommand(soc);
             sm.buttonWasPressed();
-            z++;
-        } else if (z > 0 && z % 2 != 0) {
+            switchs++;
+        } else if (switchs == 1) {
             URL urlic = getClass().getResource("/images/soundoff.png");
             ImageIcon sicon = new ImageIcon(urlic);
             soundbtn.setIcon(sicon);
@@ -883,7 +964,7 @@ public class MainJFrame extends javax.swing.JFrame {
             SoundOffCommand sfc = new SoundOffCommand(sound);
             sm.setCommand(sfc);
             sm.buttonWasPressed();
-            z++;
+            switchs--;
         }
     }//GEN-LAST:event_soundbtnActionPerformed
 
