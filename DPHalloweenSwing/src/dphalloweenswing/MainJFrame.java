@@ -28,8 +28,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 //-------------------------Strategy Pattern: Banner and Lamps.
-//-------------------------Command Pattern: Background Sound.
 //-------------------------Simple Factory: Kid Ghost, Scary Ghost and Big Ghost.
+//-------------------------Singleton Factory: Cat and Bats.
+//-------------------------Command Pattern: Background Sound.
+
 /**
  *
  * @author faiya
@@ -277,7 +279,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         lampbtn.setBackground(new java.awt.Color(153, 153, 153));
         lampbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        lampbtn.setText("Lights");
+        lampbtn.setText("Lamps");
         lampbtn.setActionCommand("Lamp");
         lampbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         lampbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -313,6 +315,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    //Applied Simple Factory for big ghost and scary ghost.
     int n = 0;
     private void ghostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ghostbtnActionPerformed
         lamp1.setVisible(false);
@@ -426,7 +430,8 @@ public class MainJFrame extends javax.swing.JFrame {
             Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Candlebtn1ActionPerformed
-
+    
+    //Applied Strategy pattern for lamps.
     int o = 0;
     private void lampbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lampbtnActionPerformed
         ghostimg.setVisible(false);
@@ -492,7 +497,8 @@ public class MainJFrame extends javax.swing.JFrame {
         lamp6.revalidate();
         lamp7.revalidate();
     }//GEN-LAST:event_lampbtnActionPerformed
-
+    
+    //Applied Singleton pattern for Cat.
     int p = 0;
     private void catbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catbtnActionPerformed
         lamp1.setVisible(false);
@@ -525,9 +531,11 @@ public class MainJFrame extends javax.swing.JFrame {
         t = 0;
         u = 0;
         v = 0;
-        URL url = getClass().getResource("/images/cat.gif");
-        ImageIcon cicon = new ImageIcon(url);
-        cat.setIcon(cicon);
+        
+        //-----------------------------------Singleton Pattern-----------------------------
+        Animal blackcat = Cat.getCatInstance();
+        cat.setIcon(blackcat.appear());
+        
         if (p == 0) {
             cat.setVisible(true);
             p = 1;
@@ -646,6 +654,7 @@ public class MainJFrame extends javax.swing.JFrame {
         pumpkin4.revalidate();
     }//GEN-LAST:event_pumpkinbtnActionPerformed
 
+    // Applied Singleton pattern for bats.
     int s = 0;
     private void batbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batbtnActionPerformed
         lamp1.setVisible(false);
@@ -678,9 +687,11 @@ public class MainJFrame extends javax.swing.JFrame {
         t = 0;
         u = 0;
         v = 0;
-        URL url = getClass().getResource("/images/bats.gif");
-        ImageIcon bicon = new ImageIcon(url);
-        bat.setIcon(bicon);
+        
+        //---------------------------------------------Singleton Pattern-----------------------------------
+        Animal bats = Bat.getBatInstance();
+        bat.setIcon(bats.appear());
+        
         if (s == 0) {
             bat.setVisible(true);
             s = 1;
@@ -689,7 +700,8 @@ public class MainJFrame extends javax.swing.JFrame {
             s = 0;
         }
         bat.revalidate();    }//GEN-LAST:event_batbtnActionPerformed
-
+    
+    //Applied Simple Factory for kidghost.
     int t = 0;
     private void kidbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kidbtnActionPerformed
         lamp1.setVisible(false);
@@ -735,7 +747,8 @@ public class MainJFrame extends javax.swing.JFrame {
             t = 0;
         }
         kid.revalidate();    }//GEN-LAST:event_kidbtnActionPerformed
-
+    
+    // Applied Strategy pattern for banner.
     int u = 0;
     private void bannerbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bannerbtn1ActionPerformed
         lamp1.setVisible(false);
@@ -863,7 +876,7 @@ public class MainJFrame extends javax.swing.JFrame {
         candlelight2.setIcon(ficon);
         candlelight3.setIcon(ficon);
         candlelight4.setIcon(ficon);
-        //if (banner.isVisible() == false) {
+
         if (v == 0) {
             banner.setVisible(true);
             kid.setVisible(true);
@@ -887,7 +900,6 @@ public class MainJFrame extends javax.swing.JFrame {
             candlelight4.setVisible(true);
             ghostimg.setVisible(true);
             ghostimg2.setVisible(true);
-            //v++;
             v = 1;
 
         } else if (v == 1) {
@@ -939,7 +951,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ghostimg2.revalidate();
     }//GEN-LAST:event_allActionPerformed
 
-    //Applied Command pattern for sound button.
+    //Applied Command pattern for sound.
     int switchs = 0;
     SoundManager sm = new SoundManager();
     Sound sound = new Sound();
