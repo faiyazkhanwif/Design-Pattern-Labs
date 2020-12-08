@@ -14,6 +14,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.ImageIcon;
 
 //Used for Command Pattern
 /**
@@ -21,33 +22,34 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  * @author faiya
  */
 public class Sound {
+
     Clip clip;
+    URL urlic = getClass().getResource("/images/soundon.png");
+    URL urlic2 = getClass().getResource("/images/soundoff.png");
+    ImageIcon sicon = new ImageIcon(urlic);
+    ImageIcon sicon2 = new ImageIcon(urlic2);
+    private javax.swing.JButton soundbtn;
+    MainJFrame mj;
 
-    public Sound() {
-        this.clip = backgroundSoundSystem();
-    }
-    
-    public Clip backgroundSoundSystem() {
-        URL urls = getClass().getResource("/sound/bgsound.wav");
-        AudioInputStream audioInputStream;
-        Clip clip = null;
-        try {
-            audioInputStream = AudioSystem.getAudioInputStream(urls.openStream());
-            clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            return clip;
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
-            Logger.getLogger(MainJFrame.class.getName()).log(Level.SEVERE, null, ex);
-            return clip;
-        }
-    }
+    public Sound(Clip backgroundSound, MainJFrame mj) {
+        this.clip = backgroundSound;
+        this.mj = mj;
+        soundbtn = mj.getSoundbtn();
 
-    public void turnOff() {
-        clip .stop();
     }
 
     public void turnOn() {
         clip.start();
         clip.loop(Clip.LOOP_CONTINUOUSLY);
+        soundbtn.setIcon(sicon);
+        soundbtn.setVisible(true);
+        soundbtn.revalidate();
+    }
+
+    public void turnOff() {
+        clip.stop();
+        soundbtn.setIcon(sicon2);
+        soundbtn.setVisible(true);
+        soundbtn.revalidate();
     }
 }

@@ -16,11 +16,33 @@ import javax.swing.ImageIcon;
  */
 public class KidGhost implements Ghost {
 
-    @Override
-    public ImageIcon appear() {
-        URL url = getClass().getResource("/images/kid.png");
-        ImageIcon gicon = new ImageIcon(url);
-        return gicon;
+MainJFrame mj;
+    private javax.swing.JLabel g3;
+
+    URL url3 = getClass().getResource("/images/kid.png");
+
+    ImageIcon gicon3 = new ImageIcon(url3);
+
+    public KidGhost(MainJFrame mj) {
+        this.mj = mj;
+        g3 = mj.getKid();
     }
 
-}
+    @Override
+    public void appear() {
+        g3.setIcon(gicon3);
+        mj.setKid(g3);
+        g3.setVisible(true);
+        g3.revalidate();
+    }
+
+
+    @Override
+    public void disappear() {
+        g3.setVisible(false);
+        g3.revalidate();
+
+    }
+    }
+
+

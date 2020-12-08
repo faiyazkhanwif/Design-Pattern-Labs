@@ -9,18 +9,30 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 //used for Strategy Pattern
-
 /**
  *
  * @author faiya
  */
 public class AccessorizeWithBanner implements AccessorizeBehavior {
 
-    @Override
-    public ImageIcon accessorize() {
-        URL url = getClass().getResource("/images/banner.png");
-        ImageIcon bicon = new ImageIcon(url);
-        return bicon;
+    MainJFrame mj;
+    private javax.swing.JLabel b1;
+
+    public AccessorizeWithBanner(MainJFrame mj) {
+        this.mj = mj;
+        b1 = mj.getBanner();
     }
-    
+
+    URL url = getClass().getResource("/images/banner.png");
+    ImageIcon bicon = new ImageIcon(url);
+
+    @Override
+    public void accessorize() {
+
+        b1.setIcon(bicon);
+        b1.setVisible(true);
+        b1.revalidate();
+
+    }
+
 }

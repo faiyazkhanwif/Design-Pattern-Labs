@@ -9,18 +9,37 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 
 //Used for Simple Factory.
-
 /**
  *
  * @author faiya
  */
-public class BigGhost implements Ghost{
+public class BigGhost implements Ghost {
+
+    MainJFrame mj;
+    private javax.swing.JLabel g1;
+
+    URL url1 = getClass().getResource("/images/g.png");
+
+    ImageIcon gicon1 = new ImageIcon(url1);
+
+    public BigGhost(MainJFrame mj) {
+        this.mj = mj;
+        g1 = mj.getGhostimg();
+    }
 
     @Override
-    public ImageIcon appear() {
-        URL url = getClass().getResource("/images/g.png");
-        ImageIcon gicon = new ImageIcon(url);
-        return gicon;
+    public void appear() {
+        g1.setIcon(gicon1);
+        mj.setGhostimg(g1);
+        g1.setVisible(true);
+        g1.revalidate();
     }
-    
+
+
+    @Override
+    public void disappear() {
+        g1.setVisible(false);
+        g1.revalidate();
+    }
+
 }

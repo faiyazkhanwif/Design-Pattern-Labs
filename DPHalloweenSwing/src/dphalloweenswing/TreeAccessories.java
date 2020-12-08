@@ -15,9 +15,14 @@ import javax.swing.ImageIcon;
  */
 public abstract class TreeAccessories {
     AccessorizeBehavior accbehavior;
+    MainJFrame mj;
+
+    public TreeAccessories(MainJFrame mj) {
+        this.mj = mj;
+    }    
     
-    public ImageIcon performAccessorize(){
-        return accbehavior.accessorize();
+    public void performAccessorize(){
+         accbehavior.accessorize();
     }
     
     public void setAccBehavior(AccessorizeBehavior acc){

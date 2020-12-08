@@ -12,14 +12,18 @@ package dphalloweenswing;
  * @author faiya
  */
 public class GhostFactory {
-
+    MainJFrame mj;
+    public GhostFactory(MainJFrame mj) {
+        this.mj = mj;
+    }
+    
     public Ghost getGhost(String ghostType) {
         if (ghostType == "kid") {
-            return new KidGhost();
+            return new KidGhost(mj);
         } else if (ghostType == "big") {
-            return new BigGhost();
+            return new BigGhost(mj);
         } else {
-            return new ScaryGhost();
+            return new ScaryGhost(mj);
         }
     }
 }

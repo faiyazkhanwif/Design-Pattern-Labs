@@ -13,5 +13,6 @@ import javax.swing.ImageIcon;
  * @author faiya
  */
 public interface Animal {
-    ImageIcon appear();
+    void appear();
+    void disappear();
 }

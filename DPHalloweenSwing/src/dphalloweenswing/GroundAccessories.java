@@ -5,12 +5,13 @@
  */
 package dphalloweenswing;
 
-//used for Strategy Pattern
+import javax.swing.ImageIcon;
 
 /**
  *
  * @author faiya
  */
-public interface AccessorizeBehavior {
-    void accessorize();
+public interface GroundAccessories {
+    void set();
+    void remove();
 }

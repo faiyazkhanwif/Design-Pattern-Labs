@@ -13,8 +13,9 @@ package dphalloweenswing;
  */
 public class Banner extends TreeAccessories{
 
-    public Banner() {
-        accbehavior = new AccessorizeWithBanner();
+    public Banner(MainJFrame mj) {
+        super(mj);
+        accbehavior = new AccessorizeWithBanner(mj);
     }
     
 }

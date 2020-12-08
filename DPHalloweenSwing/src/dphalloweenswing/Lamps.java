@@ -12,9 +12,10 @@ package dphalloweenswing;
  * @author faiya
  */
 public class Lamps extends TreeAccessories{
-
-    public Lamps() {
-        accbehavior = new AccessorizeWithLamps();
+    
+    public Lamps(MainJFrame mj) {
+        super(mj);
+        accbehavior = new AccessorizeWithLamps(mj);
     }
     
 }

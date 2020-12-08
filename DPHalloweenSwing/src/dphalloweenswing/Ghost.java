@@ -14,5 +14,6 @@ import javax.swing.ImageIcon;
  * @author faiya
  */
 public interface Ghost {
-    ImageIcon appear();
+    void appear();
+    void disappear();
 }
