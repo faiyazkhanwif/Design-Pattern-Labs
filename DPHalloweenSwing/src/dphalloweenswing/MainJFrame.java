@@ -31,6 +31,8 @@ import javax.swing.JLabel;
 //-------------------------Simple Factory: Kid Ghost, Scary Ghost and Big Ghost.
 //-------------------------Singleton Factory: Cat and Bats.
 //-------------------------Command Pattern: Background Sound.
+//-------------------------Facade Pattern: The "All" Button.
+
 /**
  *
  * @author faiya
@@ -320,6 +322,7 @@ public class MainJFrame extends javax.swing.JFrame {
     //Applied Simple Factory for big ghost and scary ghost.
     int n = 0;
     private void ghostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ghostbtnActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -369,6 +372,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     int m = 0;
     private void Candlebtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Candlebtn1ActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -412,6 +416,7 @@ public class MainJFrame extends javax.swing.JFrame {
     //Applied Strategy pattern for lamps.
     int o = 0;
     private void lampbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lampbtnActionPerformed
+        //Setting other decorations off when it is clicked
         ghostimg.setVisible(false);
         ghostimg2.setVisible(false);
         candlelight1.setVisible(false);
@@ -444,27 +449,16 @@ public class MainJFrame extends javax.swing.JFrame {
             mylamps.performAccessorize();
             o = 1;
         } else if (o == 1) {
-            lamp1.setVisible(false);
-            lamp2.setVisible(false);
-            lamp3.setVisible(false);
-            lamp4.setVisible(false);
-            lamp5.setVisible(false);
-            lamp6.setVisible(false);
-            lamp7.setVisible(false);
+            mylamps.setAccBehavior(new RemoveLamps(mj));
+            mylamps.performAccessorize();
             o = 0;
-            lamp1.revalidate();
-            lamp2.revalidate();
-            lamp3.revalidate();
-            lamp4.revalidate();
-            lamp5.revalidate();
-            lamp6.revalidate();
-            lamp7.revalidate();
         }
     }//GEN-LAST:event_lampbtnActionPerformed
 
     //Applied Singleton pattern for Cat.
     int p = 0;
     private void catbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_catbtnActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -511,6 +505,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     int q = 0;
     private void cfbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cfbtnActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -556,6 +551,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     int r = 0;
     private void pumpkinbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pumpkinbtnActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -599,6 +595,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Applied Singleton pattern for bats.
     int s = 0;
     private void batbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batbtnActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -644,6 +641,7 @@ public class MainJFrame extends javax.swing.JFrame {
     //Applied Simple Factory for kidghost.
     int t = 0;
     private void kidbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kidbtnActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -674,6 +672,7 @@ public class MainJFrame extends javax.swing.JFrame {
         s = 0;
         u = 0;
         v = 0;
+
         // ----------------------------------Simple Factory pattern--------------------------------------------
         GhostFactory gfactory = new GhostFactory(mj);
         Ghost kidghost = gfactory.getGhost("kid");
@@ -690,6 +689,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Applied Strategy pattern for banner.
     int u = 0;
     private void bannerbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bannerbtn1ActionPerformed
+        //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
         lamp2.setVisible(false);
         lamp3.setVisible(false);
@@ -728,13 +728,15 @@ public class MainJFrame extends javax.swing.JFrame {
             mybanner.performAccessorize();
             u = 1;
         } else if (u == 1) {
-            banner.setVisible(false);
+            mybanner.setAccBehavior(new RemoveBanner(mj));
+            mybanner.performAccessorize();
             u = 0;
         }
         banner.revalidate();    }//GEN-LAST:event_bannerbtn1ActionPerformed
 
     int v = 0;
     private void allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allActionPerformed
+        //Setting other decorations off when it is clicked
         banner.setVisible(false);
         kid.setVisible(false);
         bat.setVisible(false);
@@ -766,127 +768,27 @@ public class MainJFrame extends javax.swing.JFrame {
         s = 0;
         t = 0;
         u = 0;
-        URL url3 = getClass().getResource("/images/pumpkin.gif");
-        URL url4 = getClass().getResource("/images/pumpkinx.gif");
-        URL url5 = getClass().getResource("/images/pumpkiny.gif");
-        URL url6 = getClass().getResource("/images/pumpkinz.gif");
-        ImageIcon pficon = new ImageIcon(url3);
-        ImageIcon pficon2 = new ImageIcon(url4);
-        ImageIcon pficon3 = new ImageIcon(url5);
-        ImageIcon pficon4 = new ImageIcon(url6);
-        pumpkin1.setIcon(pficon);
-        pumpkin2.setIcon(pficon2);
-        pumpkin3.setIcon(pficon3);
-        pumpkin4.setIcon(pficon4);
-        URL url = getClass().getResource("/images/banner.png");
-        ImageIcon bicon = new ImageIcon(url);
-        banner.setIcon(bicon);
-        URL url1 = getClass().getResource("/images/kid.png");
-        ImageIcon kicon = new ImageIcon(url1);
-        kid.setIcon(kicon);
-        URL url2 = getClass().getResource("/images/bats.gif");
-        ImageIcon bticon = new ImageIcon(url2);
-        bat.setIcon(bticon);
-        URL url7 = getClass().getResource("/images/campfire.gif");
-        ImageIcon cficon = new ImageIcon(url7);
-        URL url8 = getClass().getResource("/images/cat.gif");
-        ImageIcon cicon = new ImageIcon(url8);
-        cat.setIcon(cicon);
-        campfire.setIcon(cficon);
-        URL url9 = getClass().getResource("/images/lamp.png");
-        ImageIcon licon = new ImageIcon(url9);
-        lamp1.setIcon(licon);
-        lamp2.setIcon(licon);
-        lamp3.setIcon(licon);
-        lamp4.setIcon(licon);
-        lamp5.setIcon(licon);
-        lamp6.setIcon(licon);
-        lamp7.setIcon(licon);
-        URL ur20 = getClass().getResource("/images/fire.png");
-        URL ur21 = getClass().getResource("/images/g.png");
-        URL url22 = getClass().getResource("/images/gx.gif");
-        ImageIcon gicon = new ImageIcon(ur21);
-        ImageIcon gicon2 = new ImageIcon(url22);
-        ghostimg.setIcon(gicon);
-        ghostimg2.setIcon(gicon2);
-        ImageIcon ficon = new ImageIcon(ur20);
-        candlelight1.setIcon(ficon);
-        candlelight2.setIcon(ficon);
-        candlelight3.setIcon(ficon);
-        candlelight4.setIcon(ficon);
+        GhostFactory gfactory = new GhostFactory(mj);
+        GroundAccessories candleLights = new CandleLights(mj);
+        TreeAccessories mylamps = new Lamps(mj);
+        TreeAccessories mybanner = new Banner(mj);
+        Animal blackcat = Cat.getCatInstance(mj);
+        Animal bats = Bat.getBatInstance(mj);
+        GroundAccessories cfire = new CampFire(mj);
+        Pumpkin pumpkin = new Pumpkin(mj);
+        //-------------------------------------------Facade Pattern----------------------------------------------
+
+        AllFacade halloweenParty = new AllFacade(mj,gfactory,candleLights,mylamps,blackcat,
+                cfire,pumpkin,bats,mybanner);
 
         if (v == 0) {
-            banner.setVisible(true);
-            kid.setVisible(true);
-            bat.setVisible(true);
-            pumpkin1.setVisible(true);
-            pumpkin2.setVisible(true);
-            pumpkin3.setVisible(true);
-            pumpkin4.setVisible(true);
-            campfire.setVisible(true);
-            cat.setVisible(true);
-            lamp1.setVisible(true);
-            lamp2.setVisible(true);
-            lamp3.setVisible(true);
-            lamp4.setVisible(true);
-            lamp5.setVisible(true);
-            lamp6.setVisible(true);
-            lamp7.setVisible(true);
-            candlelight1.setVisible(true);
-            candlelight2.setVisible(true);
-            candlelight3.setVisible(true);
-            candlelight4.setVisible(true);
-            ghostimg.setVisible(true);
-            ghostimg2.setVisible(true);
+            halloweenParty.turnAllOn();
             v = 1;
 
         } else if (v == 1) {
-            banner.setVisible(false);
-            kid.setVisible(false);
-            bat.setVisible(false);
-            pumpkin1.setVisible(false);
-            pumpkin2.setVisible(false);
-            pumpkin3.setVisible(false);
-            pumpkin4.setVisible(false);
-            campfire.setVisible(false);
-            cat.setVisible(false);
-            lamp1.setVisible(false);
-            lamp2.setVisible(false);
-            lamp3.setVisible(false);
-            lamp4.setVisible(false);
-            lamp5.setVisible(false);
-            lamp6.setVisible(false);
-            lamp7.setVisible(false);
-            candlelight1.setVisible(false);
-            candlelight2.setVisible(false);
-            candlelight3.setVisible(false);
-            candlelight4.setVisible(false);
-            ghostimg.setVisible(false);
-            ghostimg2.setVisible(false);
+            halloweenParty.turnAllOff();
             v = 0;
         }
-        banner.revalidate();
-        kid.revalidate();
-        bat.revalidate();
-        pumpkin1.revalidate();
-        pumpkin2.revalidate();
-        pumpkin3.revalidate();
-        pumpkin4.revalidate();
-        campfire.revalidate();
-        cat.revalidate();
-        lamp1.revalidate();
-        lamp2.revalidate();
-        lamp3.revalidate();
-        lamp4.revalidate();
-        lamp5.revalidate();
-        lamp6.revalidate();
-        lamp7.revalidate();
-        candlelight1.revalidate();
-        candlelight2.revalidate();
-        candlelight3.revalidate();
-        candlelight4.revalidate();
-        ghostimg.revalidate();
-        ghostimg2.revalidate();
     }//GEN-LAST:event_allActionPerformed
 
     //Applied Command pattern for sound.
