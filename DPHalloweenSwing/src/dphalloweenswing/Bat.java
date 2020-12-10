@@ -13,36 +13,30 @@ import javax.swing.ImageIcon;
  *
  * @author faiya
  */
-public class Bat implements Animal{
+public class Bat implements Animal {
+
     private static Bat uniqueBats;
-    static MainJFrame mj;
-    private javax.swing.JLabel b;
     URL url = getClass().getResource("/images/bats.gif");
     ImageIcon bicon = new ImageIcon(url);
 
-    public Bat(MainJFrame mj) {
-        this.mj = mj;
-        b = mj.getBat();
-    }
-
-    public static Bat getBatInstance(MainJFrame mj) {
+    public static Bat getBatInstance() {
         if (uniqueBats == null) {
-            uniqueBats = new Bat(mj);
+            //uniqueBats = new Bat(mj);
+            uniqueBats = new Bat();
         }
         return uniqueBats;
     }
 
     @Override
-    public void appear() {
-        
-        b.setIcon(bicon);
-        b.setVisible(true);
-        b.validate();
+    public ImageIcon appear() {
+        return bicon;
     }
+
     @Override
-    public void disappear() {
-        b.setVisible(false);
-        b.validate();
+    public ImageIcon disappear() {
+        URL url1 = getClass().getResource("");
+        ImageIcon bicon1 = new ImageIcon(url1);
+        return bicon1;
     }
-    
+
 }

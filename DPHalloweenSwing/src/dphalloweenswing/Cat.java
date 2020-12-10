@@ -17,35 +17,26 @@ public class Cat implements Animal {
 
     private static Cat uniqueCat;
 
-    static MainJFrame mj;
-    private javax.swing.JLabel c;
     URL url = getClass().getResource("/images/cat.gif");
     ImageIcon cicon = new ImageIcon(url);
 
-    private Cat(MainJFrame mj) {
-        this.mj = mj;
-        c = mj.getCat();
-    }
-
-    public static Cat getCatInstance(MainJFrame mj) {
+    public static Cat getCatInstance() {
         if (uniqueCat == null) {
-            uniqueCat = new Cat(mj);
+            uniqueCat = new Cat();
         }
         return uniqueCat;
     }
 
     @Override
-    public void appear() {
-        c = mj.getCat();
-        c.setIcon(cicon);
-        c.setVisible(true);
-        c.validate();
+    public ImageIcon appear() {
+        return cicon;
     }
 
     @Override
-    public void disappear() {
-        c.setVisible(false);
-        c.validate();
+    public ImageIcon disappear() {
+        URL url1 = getClass().getResource("");
+        ImageIcon cicon1 = new ImageIcon(url1);
+        return cicon1;
     }
 
 }

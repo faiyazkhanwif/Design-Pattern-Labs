@@ -491,13 +491,15 @@ public class MainJFrame extends javax.swing.JFrame {
         v = 0;
 
         //-----------------------------------Singleton Pattern-----------------------------
-        Animal blackcat = Cat.getCatInstance(mj);
+        Animal blackcat = Cat.getCatInstance();
         if (p == 0) {
-            blackcat.appear();
+            cat.setIcon(blackcat.appear());
+            cat.setVisible(true);
             p = 1;
 
         } else if (p == 1) {
-            blackcat.disappear();
+            cat.setIcon(blackcat.disappear());
+            cat.setVisible(false);
             p = 0;
         }
         cat.revalidate();
@@ -628,12 +630,14 @@ public class MainJFrame extends javax.swing.JFrame {
         v = 0;
 
         //---------------------------------------------Singleton Pattern-----------------------------------
-        Animal bats = Bat.getBatInstance(mj);
+        Animal bats = Bat.getBatInstance();
         if (s == 0) {
-            bats.appear();
+            bat.setIcon(bats.appear());
+            bat.setVisible(true);
             s = 1;
         } else if (s == 1) {
-            bats.disappear();
+            bat.setIcon(bats.disappear());
+            bat.setVisible(true);
             s = 0;
         }
         bat.revalidate();    }//GEN-LAST:event_batbtnActionPerformed
@@ -772,8 +776,8 @@ public class MainJFrame extends javax.swing.JFrame {
         GroundAccessories candleLights = new CandleLights(mj);
         TreeAccessories mylamps = new Lamps(mj);
         TreeAccessories mybanner = new Banner(mj);
-        Animal blackcat = Cat.getCatInstance(mj);
-        Animal bats = Bat.getBatInstance(mj);
+        Animal blackcat = Cat.getCatInstance();
+        Animal bats = Bat.getBatInstance();
         GroundAccessories cfire = new CampFire(mj);
         Pumpkin pumpkin = new Pumpkin(mj);
         //-------------------------------------------Facade Pattern----------------------------------------------
