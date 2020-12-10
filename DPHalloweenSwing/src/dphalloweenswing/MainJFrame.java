@@ -318,7 +318,7 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    //Applied Simple Factory for big ghost and scary ghost.
+    //Applied Factory Method for big ghost and scary ghost.
     int n = 0;
     private void ghostbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ghostbtnActionPerformed
         //Setting other decorations off when it is clicked
@@ -641,7 +641,7 @@ public class MainJFrame extends javax.swing.JFrame {
         }
         bat.revalidate();    }//GEN-LAST:event_batbtnActionPerformed
 
-    //Applied Simple Factory for kidghost.
+    //Applied Factory Method for kidghost.
     int t = 0;
     private void kidbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kidbtnActionPerformed
         //Setting other decorations off when it is clicked
@@ -676,7 +676,7 @@ public class MainJFrame extends javax.swing.JFrame {
         u = 0;
         v = 0;
 
-        // ----------------------------------Simple Factory pattern--------------------------------------------
+        // ----------------------------------Factory Method pattern--------------------------------------------
         GhostCaller kidgcaller = new KidGhostCaller(mj);
         Ghost kidghost = kidgcaller.getGhost("kid");
 

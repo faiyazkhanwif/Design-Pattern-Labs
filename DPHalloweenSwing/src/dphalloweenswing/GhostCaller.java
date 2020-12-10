@@ -5,7 +5,7 @@
  */
 package dphalloweenswing;
 
-//Used for Factory method patter.
+//Used for Factory method pattern.
 /**
  *
  * @author faiya

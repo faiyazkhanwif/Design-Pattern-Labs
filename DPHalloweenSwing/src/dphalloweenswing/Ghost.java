@@ -7,7 +7,7 @@ package dphalloweenswing;
 
 import javax.swing.ImageIcon;
 
-//Used for Simple Factory.
+//Used for Factory method pattern.
 
 /**
  *
