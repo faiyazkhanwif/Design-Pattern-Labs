@@ -13,7 +13,8 @@ package dphalloweenswing;
 public class AllFacade {
 
     MainJFrame mj;
-    GhostFactory gfactory;
+    GhostCaller kidgcaller;
+    GhostCaller bigscarygcaller;
     Ghost bigghost;
     Ghost scaryghost;
     Ghost kidghost;
@@ -25,11 +26,10 @@ public class AllFacade {
     Animal bats;
     TreeAccessories mybanner;
 
-    public AllFacade(MainJFrame mj, GhostFactory gfactory, GroundAccessories candleLights,
+    public AllFacade(MainJFrame mj, GhostCaller kidgcaller, GhostCaller bigscarygcaller, GroundAccessories candleLights,
             TreeAccessories mylamps, Animal blackcat, GroundAccessories cfire,
             Pumpkin pumpkin, Animal bats, TreeAccessories mybanner) {
         this.mj = mj;
-        this.gfactory = gfactory;
         this.candleLights = candleLights;
         this.mylamps = mylamps;
         this.blackcat = blackcat;
@@ -37,9 +37,9 @@ public class AllFacade {
         this.pumpkin = pumpkin;
         this.bats = bats;
         this.mybanner = mybanner;
-        bigghost = gfactory.getGhost("big");
-        scaryghost = gfactory.getGhost("scary");
-        kidghost = gfactory.getGhost("kid");
+        bigghost = bigscarygcaller.getGhost("big");
+        scaryghost = bigscarygcaller.getGhost("scary");
+        kidghost = kidgcaller.getGhost("kid");
     }
 
     public void turnAllOn() {

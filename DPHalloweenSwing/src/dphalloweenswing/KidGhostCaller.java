@@ -5,25 +5,24 @@
  */
 package dphalloweenswing;
 
-//Used for Simple Factory.
-
+//Used for Factory method patter.
 /**
  *
  * @author faiya
  */
-public class GhostFactory {
-    MainJFrame mj;
-    public GhostFactory(MainJFrame mj) {
-        this.mj = mj;
+public class KidGhostCaller extends GhostCaller {
+
+    public KidGhostCaller(MainJFrame mj) {
+        super(mj);
     }
-    
-    public Ghost getGhost(String ghostType) {
+
+    @Override
+    Ghost getGhost(String ghostType) {
         if (ghostType == "kid") {
             return new KidGhost(mj);
-        } else if (ghostType == "big") {
-            return new BigGhost(mj);
+
         } else {
-            return new ScaryGhost(mj);
+            return null;
         }
     }
 }

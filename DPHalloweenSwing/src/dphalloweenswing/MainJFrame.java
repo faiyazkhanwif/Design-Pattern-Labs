@@ -28,11 +28,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 
 //-------------------------Strategy Pattern: Banner and Lamps.
-//-------------------------Simple Factory: Kid Ghost, Scary Ghost and Big Ghost.
+//-------------------------Factory Method: Kid Ghost, Scary Ghost and Big Ghost.
 //-------------------------Singleton Factory: Cat and Bats.
 //-------------------------Command Pattern: Background Sound.
 //-------------------------Facade Pattern: The "All" Button.
-
 /**
  *
  * @author faiya
@@ -258,7 +257,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         kidbtn.setBackground(new java.awt.Color(153, 153, 153));
         kidbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        kidbtn.setText("Kid Ghost");
+        kidbtn.setText("Happy Kid Ghost");
         kidbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         kidbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,11 +265,11 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(kidbtn);
-        kidbtn.setBounds(210, 520, 140, 30);
+        kidbtn.setBounds(130, 520, 220, 30);
 
         ghostbtn.setBackground(new java.awt.Color(153, 153, 153));
         ghostbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        ghostbtn.setText("Scary Ghost");
+        ghostbtn.setText("Big & Scary Ghosts");
         ghostbtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ghostbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +277,7 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(ghostbtn);
-        ghostbtn.setBounds(460, 520, 140, 30);
+        ghostbtn.setBounds(460, 520, 210, 30);
 
         lampbtn.setBackground(new java.awt.Color(153, 153, 153));
         lampbtn.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
@@ -353,10 +352,10 @@ public class MainJFrame extends javax.swing.JFrame {
         u = 0;
         v = 0;
 
-        // ----------------------------------Simple Factory pattern--------------------------------------------
-        GhostFactory gfactory = new GhostFactory(mj);
-        Ghost bigghost = gfactory.getGhost("big");
-        Ghost scaryghost = gfactory.getGhost("scary");
+        // ----------------------------------Factory Method pattern--------------------------------------------
+        GhostCaller bigscarygcaller = new ScaryAndBigGhostsCaller(mj);
+        Ghost bigghost = bigscarygcaller.getGhost("big");
+        Ghost scaryghost = bigscarygcaller.getGhost("scary");
 
         if (n == 0) {
             bigghost.appear();
@@ -678,8 +677,8 @@ public class MainJFrame extends javax.swing.JFrame {
         v = 0;
 
         // ----------------------------------Simple Factory pattern--------------------------------------------
-        GhostFactory gfactory = new GhostFactory(mj);
-        Ghost kidghost = gfactory.getGhost("kid");
+        GhostCaller kidgcaller = new KidGhostCaller(mj);
+        Ghost kidghost = kidgcaller.getGhost("kid");
 
         if (t == 0) {
             kidghost.appear();
@@ -772,7 +771,8 @@ public class MainJFrame extends javax.swing.JFrame {
         s = 0;
         t = 0;
         u = 0;
-        GhostFactory gfactory = new GhostFactory(mj);
+        GhostCaller kidgcaller = new KidGhostCaller(mj);
+        GhostCaller bigscarygcaller = new ScaryAndBigGhostsCaller(mj); 
         GroundAccessories candleLights = new CandleLights(mj);
         TreeAccessories mylamps = new Lamps(mj);
         TreeAccessories mybanner = new Banner(mj);
@@ -782,8 +782,8 @@ public class MainJFrame extends javax.swing.JFrame {
         Pumpkin pumpkin = new Pumpkin(mj);
         //-------------------------------------------Facade Pattern----------------------------------------------
 
-        AllFacade halloweenParty = new AllFacade(mj,gfactory,candleLights,mylamps,blackcat,
-                cfire,pumpkin,bats,mybanner);
+        AllFacade halloweenParty = new AllFacade(mj, kidgcaller, bigscarygcaller, 
+                candleLights, mylamps, blackcat,cfire, pumpkin, bats, mybanner);
 
         if (v == 0) {
             halloweenParty.turnAllOn();
