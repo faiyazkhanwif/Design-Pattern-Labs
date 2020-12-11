@@ -6,7 +6,6 @@
 package dpstrategy;
 
 import main.MainJFrame;
-import dpstrategy.AccessorizeBehavior;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
@@ -19,14 +18,13 @@ public class AccessorizeWithBanner implements AccessorizeBehavior {
 
     MainJFrame mj;
     private javax.swing.JLabel b1;
+    URL url = getClass().getResource("/images/banner.png");
+    ImageIcon bicon = new ImageIcon(url);
 
     public AccessorizeWithBanner(MainJFrame mj) {
         this.mj = mj;
         b1 = mj.getBanner();
     }
-
-    URL url = getClass().getResource("/images/banner.png");
-    ImageIcon bicon = new ImageIcon(url);
 
     @Override
     public void accessorize() {

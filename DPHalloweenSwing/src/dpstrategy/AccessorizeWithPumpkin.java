@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package other;
+package dpstrategy;
 
-import main.MainJFrame;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import main.MainJFrame;
 
+//used for Strategy Pattern
 /**
  *
  * @author faiya
  */
-public class Pumpkin implements GroundAccessories {
-
+public class AccessorizeWithPumpkin implements AccessorizeBehavior{
     MainJFrame mj;
     private javax.swing.JLabel p1;
     private javax.swing.JLabel p2;
@@ -29,17 +29,16 @@ public class Pumpkin implements GroundAccessories {
     ImageIcon pficon3 = new ImageIcon(url3);
     ImageIcon pficon4 = new ImageIcon(url4);
 
-    public Pumpkin(MainJFrame mj) {
+    public AccessorizeWithPumpkin(MainJFrame mj) {
         this.mj = mj;
         p1 = mj.getPumpkin1();
         p2 = mj.getPumpkin2();
         p3 = mj.getPumpkin3();
         p4 = mj.getPumpkin4();
-
     }
 
     @Override
-    public void set() {
+    public void accessorize() {
 
         p1.setIcon(pficon1);
         mj.setPumpkin1(p1);
@@ -62,20 +61,5 @@ public class Pumpkin implements GroundAccessories {
         p2.revalidate();
         p3.revalidate();
         p4.revalidate();
-
     }
-
-    @Override
-    public void remove() {
-        p1.setVisible(false);
-        p2.setVisible(false);
-        p3.setVisible(false);
-        p4.setVisible(false);
-
-        p1.revalidate();
-        p2.revalidate();
-        p3.revalidate();
-        p4.revalidate();
-    }
-
 }

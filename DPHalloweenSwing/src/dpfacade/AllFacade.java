@@ -12,10 +12,10 @@ import dpfactorymethod.GhostCaller;
 import dpfactorymethod.Ghost;
 import other.GroundAccessories;
 import main.MainJFrame;
-import other.Pumpkin;
 import dpstrategy.TreeAccessories;
 import dpstrategy.RemoveLamps;
 import dpstrategy.RemoveBanner;
+import dpstrategy.RemovePumpkins;
 
 /**
  *
@@ -33,13 +33,13 @@ public class AllFacade {
     TreeAccessories mylamps;
     Animal blackcat;
     GroundAccessories cfire;
-    Pumpkin pumpkin;
+    TreeAccessories pumpkin;
     Animal bats;
     TreeAccessories mybanner;
 
     public AllFacade(MainJFrame mj, GhostCaller kidgcaller, GhostCaller bigscarygcaller, GroundAccessories candleLights,
             TreeAccessories mylamps, Animal blackcat, GroundAccessories cfire,
-            Pumpkin pumpkin, Animal bats, TreeAccessories mybanner) {
+            TreeAccessories pumpkin, Animal bats, TreeAccessories mybanner) {
         this.mj = mj;
         this.candleLights = candleLights;
         this.mylamps = mylamps;
@@ -57,16 +57,23 @@ public class AllFacade {
         bigghost.appear();
         scaryghost.appear();
         kidghost.appear();
+        
         candleLights.set();
+        
         mylamps.performAccessorize();
+        
         mj.getCat().setIcon(blackcat.appear());
         mj.getCat().setVisible(true);
         mj.getCat().revalidate();
+        
         cfire.set();
-        pumpkin.set();
+        
+        pumpkin.performAccessorize();
+        
         mj.getBat().setIcon(bats.appear());
         mj.getBat().setVisible(true);
         mj.getBat().revalidate();
+        
         mybanner.performAccessorize();
 
     }
@@ -75,17 +82,25 @@ public class AllFacade {
         bigghost.disappear();
         scaryghost.disappear();
         kidghost.disappear();
+        
         candleLights.remove();
+        
         mylamps.setAccBehavior(new RemoveLamps(mj));
         mylamps.performAccessorize();
-                mj.getCat().setIcon(blackcat.disappear());
+        
+        mj.getCat().setIcon(blackcat.disappear());
         mj.getCat().setVisible(true);
         mj.getCat().revalidate();
+        
         cfire.remove();
-        pumpkin.remove();
-                mj.getBat().setIcon(bats.disappear());
+        
+        pumpkin.setAccBehavior(new RemovePumpkins(mj));
+        pumpkin.performAccessorize();
+        
+        mj.getBat().setIcon(bats.disappear());
         mj.getBat().setVisible(true);
         mj.getBat().revalidate();
+        
         mybanner.setAccBehavior(new RemoveBanner(mj));
         mybanner.performAccessorize();
     }

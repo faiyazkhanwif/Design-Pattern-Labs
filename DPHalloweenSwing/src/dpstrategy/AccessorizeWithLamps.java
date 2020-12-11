@@ -6,7 +6,6 @@
 package dpstrategy;
 
 import main.MainJFrame;
-import dpstrategy.AccessorizeBehavior;
 import java.net.URL;
 import javax.swing.ImageIcon;
 
@@ -25,6 +24,8 @@ public class AccessorizeWithLamps implements AccessorizeBehavior {
     private javax.swing.JLabel l5;
     private javax.swing.JLabel l6;
     private javax.swing.JLabel l7;
+    URL url = getClass().getResource("/images/lamp.png");
+    ImageIcon licon = new ImageIcon(url);
 
     public AccessorizeWithLamps(MainJFrame mj) {
         this.mj = mj;
@@ -37,12 +38,8 @@ public class AccessorizeWithLamps implements AccessorizeBehavior {
         l7 = mj.getLamp7();
     }
 
-    URL url = getClass().getResource("/images/lamp.png");
-    ImageIcon licon = new ImageIcon(url);
-
     @Override
     public void accessorize() {
-
 
         l1.setIcon(licon);
         l2.setIcon(licon);

@@ -47,7 +47,8 @@ import javax.swing.JLabel;
 import other.CampFire;
 import other.CandleLights;
 import other.GroundAccessories;
-import other.Pumpkin;
+import dpstrategy.Pumpkin;
+import dpstrategy.RemovePumpkins;
 
 //-------------------------Strategy Pattern: Banner and Lamps.
 //-------------------------Factory Method: Kid Ghost, Scary Ghost and Big Ghost.
@@ -573,6 +574,8 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cfbtnActionPerformed
 
     int r = 0;
+    
+    //Applied Strategy pattern for Pumpkins.
     private void pumpkinbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pumpkinbtnActionPerformed
         //Setting other decorations off when it is clicked
         lamp1.setVisible(false);
@@ -602,15 +605,17 @@ public class MainJFrame extends javax.swing.JFrame {
         t = 0;
         u = 0;
         v = 0;
-
-        Pumpkin pumpkin = new Pumpkin(mj);
+        
+        //------------------------------------------------Strategy Pattern--------------------------------------------------------
+        TreeAccessories mypumpkins = new Pumpkin(mj);
 
         if (r == 0) {
-            pumpkin.set();
+            mypumpkins.performAccessorize();
             r = 1;
 
         } else if (r == 1) {
-            pumpkin.remove();
+            mypumpkins.setAccBehavior(new RemovePumpkins(mj));
+            mypumpkins.performAccessorize();
             r = 0;
         }
     }//GEN-LAST:event_pumpkinbtnActionPerformed

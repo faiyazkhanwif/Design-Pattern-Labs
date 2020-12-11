@@ -8,8 +8,7 @@ package dpstrategy;
 //used for Strategy Pattern
 
 import main.MainJFrame;
-import dpstrategy.TreeAccessories;
-import dpstrategy.AccessorizeWithBanner;
+
 
 
 /**

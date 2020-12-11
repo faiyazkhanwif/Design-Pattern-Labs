@@ -6,8 +6,6 @@
 package dpstrategy;
 
 import main.MainJFrame;
-import dpstrategy.AccessorizeBehavior;
-import javax.swing.ImageIcon;
 
 //used for Strategy Pattern
 

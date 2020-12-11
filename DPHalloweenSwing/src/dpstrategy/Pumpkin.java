@@ -5,20 +5,18 @@
  */
 package dpstrategy;
 
-//used for Strategy Pattern
-
 import main.MainJFrame;
 
-
+//used for Strategy Pattern
 /**
  *
  * @author faiya
  */
-public class Lamps extends TreeAccessories{
-    
-    public Lamps(MainJFrame mj) {
+public class Pumpkin extends TreeAccessories {
+
+    public Pumpkin(MainJFrame mj) {
         super(mj);
-        accbehavior = new AccessorizeWithLamps(mj);
+        accbehavior = new AccessorizeWithPumpkin(mj);
     }
-    
+
 }

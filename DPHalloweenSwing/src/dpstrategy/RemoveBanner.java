@@ -8,7 +8,6 @@ package dpstrategy;
 //used for Strategy Pattern
 
 import main.MainJFrame;
-import dpstrategy.AccessorizeBehavior;
 
 /**
  *
