@@ -50,7 +50,7 @@ import other.GroundAccessories;
 import dpstrategy.Pumpkin;
 import dpstrategy.RemovePumpkins;
 
-//-------------------------Strategy Pattern: Banner and Lamps.
+//-------------------------Strategy Pattern: Banner, Lamps and Pumpkins.
 //-------------------------Factory Method: Kid Ghost, Scary Ghost and Big Ghost.
 //-------------------------Singleton Factory: Cat and Bats.
 //-------------------------Command Pattern: Background Sound.
@@ -763,7 +763,8 @@ public class MainJFrame extends javax.swing.JFrame {
             u = 0;
         }
         banner.revalidate();    }//GEN-LAST:event_bannerbtn1ActionPerformed
-
+    
+    //Applied Facade pattern to turn everything on at the same time.
     int v = 0;
     private void allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allActionPerformed
         //Setting other decorations off when it is clicked

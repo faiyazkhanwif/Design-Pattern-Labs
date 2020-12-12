@@ -22,7 +22,6 @@ public class Bat implements Animal {
 
     public static Bat getBatInstance() {
         if (uniqueBats == null) {
-            //uniqueBats = new Bat(mj);
             uniqueBats = new Bat();
         }
         return uniqueBats;
