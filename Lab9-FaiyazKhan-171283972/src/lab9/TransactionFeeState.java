@@ -9,9 +9,7 @@ package lab9;
  *
  * @author faiya
  */
-public class TransactionFeeState implements State {
-
-    BusinessAccount ba;
+public class TransactionFeeState extends State {
 
     public TransactionFeeState(BusinessAccount ba) {
         this.ba = ba;
@@ -19,24 +17,23 @@ public class TransactionFeeState implements State {
 
     @Override
     public void withdraw(double amount) {
-        double currentBalance = this.ba.getBalance();
-        currentBalance = currentBalance - amount - BusinessAccount.TRANS_FEE_NORMAL;
-        this.ba.setBalance(currentBalance);
         System.out.println("Transaction Fee ($2.0)was charged due to account status (less than minimum balance)");
-        transitionState(currentBalance);
+        super.withdraw(amount);
+        double balance = ba.getBalance();
+        balance = balance - BusinessAccount.TRANS_FEE_NORMAL;
+        ba.setBalance(balance);
         System.out.println("An amount " + amount + " is withdrawn ");
     }
 
     @Override
     public void deposit(double amount) {
-        double currentBalance = this.ba.getBalance();
-        currentBalance = currentBalance + amount - BusinessAccount.TRANS_FEE_NORMAL;
-        this.ba.setBalance(currentBalance);
-        
         System.out.println("Transaction Fee ($2.0)was charged due to account status (less than minimum balance)");
-        transitionState(currentBalance);
+        super.deposit(amount);
+        double balance = ba.getBalance();
+        balance = balance - BusinessAccount.TRANS_FEE_NORMAL;
+        ba.setBalance(balance);
         System.out.println("An amount " + amount + " is deposited ");
-        
+
     }
 
     @Override

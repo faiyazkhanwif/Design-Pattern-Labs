@@ -9,8 +9,29 @@ package lab9;
  *
  * @author faiya
  */
-public interface State {
-    void withdraw(double amount);
-    void deposit(double amount);
-    void transitionState(double balance);
+public class State {
+
+    BusinessAccount ba;
+
+    public static State InitialState(BusinessAccount a) {
+        return new NoTransactionFeeState(a);
+    }
+
+    public void withdraw(double amount) {
+        double currentBalance = this.ba.getBalance();
+        currentBalance = currentBalance - amount;
+        this.ba.setBalance(currentBalance);
+        transitionState(currentBalance);
+    }
+
+    public void deposit(double amount) {
+        double currentBalance = this.ba.getBalance();
+        currentBalance = currentBalance + amount;
+        this.ba.setBalance(currentBalance);
+        transitionState(currentBalance);
+    }
+
+    public void transitionState(double balance) {
+
+    }
 }

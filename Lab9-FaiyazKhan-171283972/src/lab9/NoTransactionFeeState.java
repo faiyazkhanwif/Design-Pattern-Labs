@@ -9,9 +9,7 @@ package lab9;
  *
  * @author faiya
  */
-public class NoTransactionFeeState implements State {
-
-    BusinessAccount ba;
+public class NoTransactionFeeState extends State {
 
     public NoTransactionFeeState(BusinessAccount ba) {
         this.ba = ba;
@@ -19,19 +17,13 @@ public class NoTransactionFeeState implements State {
 
     @Override
     public void withdraw(double amount) {
-        double currentBalance = this.ba.getBalance();
-        currentBalance = currentBalance - amount;
-        this.ba.setBalance(currentBalance);
-        transitionState(currentBalance);
+        super.withdraw(amount);
         System.out.println("An amount " + amount + " is withdrawn ");
     }
 
     @Override
     public void deposit(double amount) {
-        double currentBalance = this.ba.getBalance();
-        currentBalance = currentBalance + amount;
-        this.ba.setBalance(currentBalance);
-        transitionState(currentBalance);
+        super.deposit(amount);
         System.out.println("An amount " + amount + " is deposited ");
     }
 

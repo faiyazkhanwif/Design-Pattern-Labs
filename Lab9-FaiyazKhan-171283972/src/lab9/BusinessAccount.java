@@ -45,8 +45,8 @@ public class BusinessAccount {
     }
 
     public BusinessAccount(String accountNumber) {
-        this.objState = new NoTransactionFeeState(this);
         this.accountNumber = accountNumber;
+        this.objState = State.InitialState(this);
     }
 
     public double getBalance() {
