@@ -9,6 +9,8 @@ package lab9;
  *
  * @author faiya
  */
-public class State {
-    
+public interface State {
+    void withdraw(double amount);
+    void deposit(double amount);
+    void transitionState(double balance);
 }

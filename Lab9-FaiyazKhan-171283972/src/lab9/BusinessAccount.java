@@ -35,15 +35,17 @@ public class BusinessAccount {
     }
 
     public boolean deposit(double amount) {
+        objState.deposit(amount);
         return true;
     }
 
     public boolean withdraw(double amount) {
+        objState.withdraw(amount);
         return true;
     }
 
     public BusinessAccount(String accountNumber) {
-        //this.objState = State.InitialState(this);
+        this.objState = new NoTransactionFeeState(this);
         this.accountNumber = accountNumber;
     }
 
@@ -54,9 +56,5 @@ public class BusinessAccount {
     public void setBalance(double balance) {
         this.balance = balance;
     }
-    
-    
-    
-    
 
 }
